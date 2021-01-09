@@ -4,14 +4,14 @@ const request = require('supertest');
 
 const getResponse = () => {
   return request(app)
-    .get('/cookie/');
+    .get('/api/');
 }
 
 describe('GET path', () => {
 
   it('Should return something', () => {
     return request(app)
-        .get('/cookie/')
+        .get('/api/')
         .then( response => {
           expect(response).to.exist;
         });
@@ -19,7 +19,7 @@ describe('GET path', () => {
 
   it('Text of response should be non-blank string', () => {
     return request(app)
-        .get('/cookie/')
+        .get('/api/')
         .then( response => {
           expect(response.text).not.equal('');
           expect(response.text).to.be.a('string');
@@ -28,7 +28,7 @@ describe('GET path', () => {
 
   it('Status code should be 200', () => {
     return request(app)
-        .get('/cookie/')
+        .get('/api/')
         .then( response => {
           expect(response.text).not.equal('');
           expect(response.text).to.be.a('string');
